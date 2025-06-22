@@ -258,4 +258,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     document.addEventListener('DOMContentLoaded', loadDriveVideos);
+
+    // Blur/fade hero and blur about when about is visible (lifted)
+    const aboutSection = document.getElementById('about');
+    const aboutContent = document.querySelector('.about-content');
+    const heroSection = document.querySelector('.hero');
+
+    if (aboutSection && aboutContent && heroSection) {
+        const aboutObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    aboutContent.classList.add('lifted');
+                    heroSection.classList.add('blur-fade');
+                } else {
+                    aboutContent.classList.remove('lifted');
+                    heroSection.classList.remove('blur-fade');
+                }
+            });
+        }, { threshold: 0.5 });
+        aboutObserver.observe(aboutSection);
+    }
 });
