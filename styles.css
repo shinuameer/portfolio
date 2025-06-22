@@ -81,7 +81,7 @@ nav, .nav-container, .nav-links, .nav-toggle, .nav-links.open, nav.scrolled {
     .hero {
         min-height: 90vh;
         padding: 30px 10px 0 10px;
-        background-image: url(assets/your-mobile-image.png);
+        
         background-size: cover;
         background-position: center top;
         border-radius: 0 0 30px 30px;
